@@ -42,19 +42,26 @@ console.log(smallFriend);
 
 // brickCalculator
 
-function brickCalculator(firstheight, middleheight, lastheight){
-   var brickTotal1 = firstheight*15*1000;
-   
-   var brickTotal2  = middleheight*12*1000;
-   
-   var brickTotal3 = lastheight*10*1000;
-  
-   var total = brickTotal1 + brickTotal2 + brickTotal3;
-    
-    return total;
+function brickCalculator(depth){
+    if(depth<=10){
+        brick = depth * 1000 *15;
+    }
+    else if(depth<=20){
+        var firstPart = 10 * 1000 * 15;
+        var remaining = depth - 10;
+        var secondPart = remaining * 1000 * 12;
+        brick = firstPart + secondPart;
+    }
+    else{
+        var firstPart = 10 * 1000 * 15;
+        var secondPart = 10 * 1000 * 12;
+        var remaining = depth - 20;
+        var thirdPart = remaining *1000 * 10;
+        brick = firstPart + secondPart + thirdPart;
+    }
+    return brick;
 }
-var result = brickCalculator(10,10,5)
-console.log(result);
-
+var count = brickCalculator(25);
+console.log(count);
 
    
